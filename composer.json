@@ -1,0 +1,10 @@
+{
+    "name": "guillaume/blog_mvc",
+    "authors": [
+        {
+            "name": "Guillaume Caggia",
+            "email": "guillaume.caggia@gmail.com"
+        }
+    ],
+    "require": {}
+}
