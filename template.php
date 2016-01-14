@@ -8,7 +8,7 @@
 <body>
     <div id="global">
         <header>
-            <a href="">
+            <a href="<?php echo './'; ?>">
                 <h1 id="blog_title">My Blog</h1>
             </a>
             <p>Welcome on this simple blog !</p>
