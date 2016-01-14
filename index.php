@@ -7,6 +7,6 @@ try {
     require 'viewMain.php';
 }
 catch (Exception $e) {
-    echo '<html><body>An error has occured ! ' .  
-         $e->getMessage() . ' </body></html>';
+    $msgError = $e->getMessage();
+    require 'viewError.php';
 }
