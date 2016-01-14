@@ -31,7 +31,8 @@ function getDb()
     $db = new PDO(
         'mysql:host=localhost;dbname=BLOG_MVC;charset=utf8',
         'root',
-        'root'
+        'root', 
+        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
     );
 
     return $db;
