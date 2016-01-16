@@ -7,7 +7,7 @@
     <article>
         <header>
 
-            <a href="post.php?id=<?php echo $post->id; ?>">
+            <a href="index.php?action=post&id=<?php echo $post->id; ?>">
                 <h1 class="post_title"><?php echo $post->title; ?></h1>
             </a>
             <time><?php echo $post->date; ?></time>
