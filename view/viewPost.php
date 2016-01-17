@@ -1,6 +1,5 @@
 <?php 
-    $title = "My blog - " . $post->title;
-    ob_start();
+    $this->title = "My blog - " . $post->title;
 ?>
         
 <article>
@@ -13,20 +12,15 @@
 <hr>
 
 <header>
-<h1 id="comment_title">Comments to <?php  echo $post->title;?> : </h1>
+    <h1 id="comment_title">Comments to <?php  echo $post->title;?> : </h1>
 </header>
-    <?php foreach ($comments as $comment) : ?>
-        <p>
-            <?php echo $comment->date  ; ?> -  
-            <strong><?php echo $comment->author  ; ?> dit :</strong> 
-        </p>
-        <p class="comment_content">
-            <?php echo $comment->content ; ?>
-        </p>
-    <?php endforeach; ?>   
-
-
-<?php 
-    $content = ob_get_clean(); 
-    require 'template.php';
-?>           
+<?php foreach ($comments as $comment) : ?>
+    <p>
+        <?php echo $comment->date  ; ?> -  
+        <strong><?php echo $comment->author  ; ?> dit :</strong> 
+    </p>
+    <p class="comment_content">
+        <?php echo $comment->content ; ?>
+    </p>
+<?php endforeach; ?>   
+          

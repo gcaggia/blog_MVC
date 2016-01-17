@@ -1,6 +1,5 @@
 <?php 
-    $title = "Welcome on my blog";
-    ob_start();
+    $this->title = "Welcome on my blog";
 ?>
         
 <?php foreach ($posts as $post) : ?>
@@ -16,8 +15,3 @@
     </article>
     <hr>
 <?php endforeach; ?>
-
-<?php 
-    $content = ob_get_clean(); 
-    require 'template.php';
-?>           

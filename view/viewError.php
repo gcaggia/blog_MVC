@@ -1,11 +1,5 @@
 <?php 
-    $title = "Welcome on my blog";
-    ob_start();
+    $this->title = "Welcome on my blog";
 ?>
         
-<p>An error has occured : <?php echo $msgError; ?></p>
-
-<?php 
-    $content = ob_get_clean(); 
-    require 'template.php';
-?>           
+<p>An error has occured : <?php echo $msgError; ?></p>         
