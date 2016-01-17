@@ -1,6 +1,6 @@
 <?php
 
-require 'model/model.php';
+require 'model/model.class.php';
 
 class ModelPost extends Model 
 {
