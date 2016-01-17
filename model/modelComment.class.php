@@ -1,6 +1,6 @@
 <?php 
 
-require 'model/model.class.php';
+require_once 'model/model.class.php';
 
 class modelComment extends Model 
 {
@@ -11,8 +11,6 @@ class modelComment extends Model
      */
     function getComments($idPost) 
     {   
-
-       $db = getDb(); 
 
         //This is the query to get the different Comments about a specific post
         $strSQL = 'SELECT COM_ID as id, COM_DATE as date,              ' .

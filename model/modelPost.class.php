@@ -1,6 +1,6 @@
 <?php
 
-require 'model/model.class.php';
+require_once 'model/model.class.php';
 
 class ModelPost extends Model 
 {
@@ -11,8 +11,6 @@ class ModelPost extends Model
      */
     function getPosts() 
     {   
-
-       $db = getDb(); 
 
         //This is the query to get the different posts for the main page
         $strSQL = 'SELECT POST_ID as id, POST_DATE as date,            ' .
@@ -31,8 +29,6 @@ class ModelPost extends Model
      */
     function getSpecificPost($idPost) 
     {   
-
-       $db = getDb(); 
 
         //This is the query to get the different posts for the main page
         $strSQL = 'SELECT POST_ID as id, POST_DATE as date,            ' .

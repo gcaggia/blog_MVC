@@ -25,12 +25,12 @@ abstract class Model
      * This function is used to create a connexion to the database with PDO
      * @return PDO Object
      */
-    function getDb()
+    private function getDb()
     {   
         if ($this->db == null) {
 
             //Creation of the connexion
-            $db = new PDO(
+            $this->db = new PDO(
                     'mysql:host=localhost;dbname=BLOG_MVC;charset=utf8',
                     'root',
                     'root', 
