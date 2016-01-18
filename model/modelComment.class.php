@@ -24,4 +24,16 @@ class modelComment extends Model
         return $comments;
     }
 
+    /**
+     * this function is used to add a comment inside the table t_COMMENT of
+     * the database
+     */
+    public function addComment($author, $content, $idPost)
+    {
+    	$strSQL = 'INSERT INTO T_COMMENT(COM_DATE, COM_AUTHOR, COM_CONTENT, POST_ID) ' .
+    	          'VALUES (?, ?, ?, ?)                                               ';
+
+    	$date = date(DATE_W3C); // return the current date with W3C format
+    	$this->executeQuery($strSQL, array($date, $author, $content, $idPost));
+    }
 }
