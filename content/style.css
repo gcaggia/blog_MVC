@@ -58,3 +58,7 @@ hr {
     font-size: 12px;
     color: #FFF;
 }
+
+#txtcomment {
+    width: 50%;
+}

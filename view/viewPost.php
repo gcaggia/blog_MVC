@@ -24,3 +24,11 @@
     </p>
 <?php endforeach; ?>   
           
+<form method="post" action="index.php?action=comment">
+    <input type="text" id="author" name="author" placeholder="Your Pseudo" required><br>
+    <textarea name="content" id="txtcomment" cols="30" rows="10" 
+        placeholder="Your Comment" required>
+    </textarea><br>
+    <input type="hidden" name="idpost" value="<?php echo $post->id;?>">
+    <input type="submit" value="Comment">
+</form>
