@@ -35,9 +35,6 @@ abstract class Model
             $login    = Configuration::get("login");
             $password = Configuration::get("password");
 
-            echo "dsn      : $dsn      ";
-            echo "login    : $login    ";
-            echo "password : $password ";
             //Creation of the connexion
             self::$db = new PDO( $dsn, $login, $password,  
                                  array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)

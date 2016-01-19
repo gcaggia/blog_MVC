@@ -29,7 +29,7 @@ class Configuration
 	public static function getParameters()
 	{
 		if(self::$parameters == null) {
-			
+
 			$filePath = dirname(__DIR__) . "/configuration/prod.ini";
 
 			if (file_exists($filePath) == false) {
@@ -38,11 +38,11 @@ class Configuration
 
 			if (file_exists($filePath) == false) {
 				throw new Exception("No configuration file found...");
+			} else {
+				self::$parameters = parse_ini_file($filePath);
 			}
 
-		} else {
-			self::$parameters = parse_ini_file($filePath);
-		}
+		} 
 		
 		return self::$parameters;
 	}
