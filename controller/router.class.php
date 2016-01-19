@@ -60,4 +60,13 @@ class router
         $view = new View("viewError");
         $view->generate(array('msgError' => $msgError));
     }
+
+    private function getParameter($tab, $name)
+    {
+        if(isset($tab[$name])) {
+            return $tab[$name];
+        } else {
+            throw new Exception("Parameter " . $tab . " is missing.");
+        }
+    }
 }
