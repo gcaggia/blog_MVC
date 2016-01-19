@@ -24,6 +24,17 @@ class controllerPost
         $comment = $this->modelComment->getComments($idpost);
         $view    = new view('viewPost');
         $view->generate(array('post' => $post, 'comments' => $comment));
-    }   
+    }
 
+    /**
+     * This function add a commont to a post
+     */
+    public function comment($author, $content, $idPost)
+    {
+        //Data saving
+        $this->modelComment->addComment($author, $content, $idPost);
+
+        //Updating of the view
+        $this->post($idpost);
+    }
 }
