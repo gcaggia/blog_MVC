@@ -1,11 +1,12 @@
 <?php 
 
+require_once 'configuration.class.php';
 
 abstract class Model 
 {
 
     //PDO Attribut to connect to the database
-    private $db;
+    private static $db;
 
     /**
      * Execute an SQL query and prepare it if necessary
@@ -27,17 +28,22 @@ abstract class Model
      */
     private function getDb()
     {   
-        if ($this->db == null) {
+        if (self::$db === null) {
+            
+            //recovery of configuration parameters to connect to the database
+            $dsn      = Configuration::get("dsn");
+            $login    = Configuration::get("login");
+            $password = Configuration::get("password");
 
+            echo "dsn      : $dsn      ";
+            echo "login    : $login    ";
+            echo "password : $password ";
             //Creation of the connexion
-            $this->db = new PDO(
-                    'mysql:host=localhost;dbname=BLOG_MVC;charset=utf8',
-                    'root',
-                    'root', 
-                    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-                );
-
+            self::$db = new PDO( $dsn, $login, $password,  
+                                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+                               );
         }
-        return $this->db;
+        
+        return self::$db;
     }
 }

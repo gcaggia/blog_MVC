@@ -6,7 +6,7 @@
 */
 class Configuration
 {
-	private static $parameters;
+	public static $parameters;
 
 	/**
 	 * Return the value of a config parameter
@@ -26,14 +26,14 @@ class Configuration
 	 * Return all the parameters of the app to connect to the database
 	 * Load the file if necessary
 	 */
-	private function getParameters()
+	public static function getParameters()
 	{
 		if(self::$parameters == null) {
 			
-			$filePath = "configuration/prod.ini";
+			$filePath = dirname(__DIR__) . "/configuration/prod.ini";
 
 			if (file_exists($filePath) == false) {
-				$filePath = "configuration/dev.ini"
+				$filePath =  dirname(__DIR__) . "/configuration/dev.ini";
 			}
 
 			if (file_exists($filePath) == false) {
@@ -43,7 +43,7 @@ class Configuration
 		} else {
 			self::$parameters = parse_ini_file($filePath);
 		}
-
+		
 		return self::$parameters;
 	}
 }
