@@ -25,28 +25,30 @@ class router
         try {
             if (isset($_GET['action'])) {
 
+                //Call Post controller to get specific post
                 if($_GET['action'] == 'post') {
-
-                    if (isset($_GET['id'])) {
-
-                        $idpost = intval($_GET['id']);
-
-                        if ($idpost != 0) {
-                            $this->ctrlPost->post($idpost);
-                        } else {
-                            throw new Exception("ID post is not valid");
-                        }
-
+                    $idpost = intval($this->getParameter($_GET, "id"));
+                    if ($idpost != 0) {
+                        $this->ctrlPost->post($idpost);
                     } else {
-                        throw new Exception("ID post is not defined");
+                        throw new Exception("ID post is not valid");
                     }
-
-                } else {
-                    throw new Exception("Not valid action");
+                }
+                //Call Comment controller in order to save a comment
+                else if($_GET['action'] == 'comment') {
+                    $author  = $this->getParameter($_POST, "author");
+                    $content = $this->getParameter($_POST, "content");
+                    $idPost  = $this->getParameter($_POST, "idpost");
+                    $this->ctrlPost->comment($author, $content, $idPost);
                 }
 
+                else {
+                    throw new Exception("Not valid action");
+                }
+            }
+
             // No action GET variable, so it's the default page
-            } else {
+            else {
                 $this->ctrlWelcome->welcome();
             }
 
@@ -66,7 +68,7 @@ class router
         if(isset($tab[$name])) {
             return $tab[$name];
         } else {
-            throw new Exception("Parameter " . $tab . " is missing.");
+            throw new Exception("Parameter " . $name . " is missing.");
         }
     }
 }

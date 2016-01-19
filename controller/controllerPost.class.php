@@ -35,6 +35,6 @@ class controllerPost
         $this->modelComment->addComment($author, $content, $idPost);
 
         //Updating of the view
-        $this->post($idpost);
+        $this->post($idPost);
     }
 }
