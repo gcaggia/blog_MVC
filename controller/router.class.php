@@ -32,7 +32,7 @@ class router
         if ($request->requestParamExist('controller')) {
             
             //The controllerName is in fact the class to instance
-            $controllerName = $request->requestGetParam('controller')
+            $controllerName = $request->requestGetParam('controller');
 
             //First Letter in Uppercase
             $controllerName = ucfirst($controllerName);
@@ -53,9 +53,20 @@ class router
         } else {
             throw new Exception("File '$controllerFile' does not exist...");
         }
-
     }
 
+    public function routerCreateAction(Request $request)
+    {
+        $actionName = "index";
+
+        //Check if inside the url there is an action attribute
+        if ($request->requestParamExist('$action')) {
+        
+            //The controllerName is in fact the class to instance
+            $actionName = $request->requestGetParam('action');
+        }
+        return $actionName;
+    }
 
     private function routerError(Exception $exception)
     {
