@@ -24,6 +24,37 @@ class router
         }
     }
 
+    private function routerCreateController(Request $request)
+    {
+        $controllerName = "Welcome";  //Default Controller
+
+        //Check if inside inside the url there is a controller attribute
+        if ($request->requestParamExist('controller')) {
+            
+            //The controllerName is in fact the class to instance
+            $controllerName = $request->requestGetParam('controller')
+
+            //First Letter in Uppercase
+            $controllerName = ucfirst($controllerName);
+
+        }
+
+        $controllerClass = "Controller"  . $controllerName
+        $controllerFile  = "controller/" . lcfirst($controllerClass) . ".class.php";
+
+        if (file_exists($controllerFile)) {
+            //Inclusion of the file related to the controller
+            require $controllerFile;
+
+            //Creation of the specific object controller
+            $controller = new $controllerClass();
+            $controller->ctrlSetRequest($request);
+            return $controller;
+        } else {
+            throw new Exception("File '$controllerFile' does not exist...");
+        }
+
+    }
 
 
     private function routerError(Exception $exception)
