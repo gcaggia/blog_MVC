@@ -3,6 +3,10 @@
 require_once 'request.class.php';
 require_once 'view/view.class.php';
 
+/**
+ * This class is used to manage what controller do we have to call
+ * and what action do we have to execute
+ */
 class router 
 {
 
@@ -24,6 +28,9 @@ class router
         }
     }
 
+    /**
+     * Create the appropriate controller based on the incoming request 
+     */
     private function routerCreateController(Request $request)
     {
         $controllerName = "Welcome";  //Default Controller
@@ -55,6 +62,9 @@ class router
         }
     }
 
+    /**
+     * Identify action to execute based on the incoming request
+     */
     public function routerCreateAction(Request $request)
     {
         $actionName = "index";
@@ -68,6 +78,9 @@ class router
         return $actionName;
     }
 
+    /**
+     * error handler with exception
+     */
     private function routerError(Exception $exception)
     {
         $view = new View("viewError");
