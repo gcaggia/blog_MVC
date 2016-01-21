@@ -50,4 +50,18 @@ abstract class Controller
 		}
 	}
 
+	/**
+	 * Generate the view linked to the current controller
+	 */
+	protected function ctrlGenerateView($dataView = array())
+	{
+		// Determination of the filename of the view from current controller name
+		$ctrlClassName = get_class($this);
+		$viewName = str_replace("controller", "", $ctrlClassName);
+
+		// Instanciation and creation of the view
+		$view = new view($this->ctrlAction, $viewName);
+		$view->generate($dataView);
+	}
+
 }
