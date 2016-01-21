@@ -65,4 +65,9 @@ class View
             throw new Exception("File " . $file . " not found...");
         }
     }
+
+    // clean a value to insert to a html page
+    private function cleanValue($value) {
+        return htmlspecialchars($value, ENT_QUOTES, 'UTF-8', false);
+    }
 }
