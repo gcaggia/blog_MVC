@@ -16,7 +16,7 @@ class router
     public function routerRequest()
     {
         try {
-            $request    = new Request($_Request);
+            $request    = new Request($_REQUEST);
             $controller = $this->routerCreateController($request);
             $action     = $this->routerCreateAction($request);
 
