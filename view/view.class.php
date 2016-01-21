@@ -8,10 +8,16 @@ class View
     //title of the view (define inside the view file with $title variable)
     private $title;
 
-    public function __construct($action)
-    {
+    public function __construct($action, $controller = "")
+    {   
+        $file = "view/";
+
+        if ($controller != "") {
+            $file .= $controller . "/";
+        }
+
         //define the name of the view from the action
-        $this->file =  "view/" . $action . ".php";
+        $this->file =  $file . $action . ".php";
     }
 
     /**
@@ -20,12 +26,17 @@ class View
     public function generate($data)
     {
 
-        //Generation of the content part for the view
+        // Generation of the content part for the view
         $content = $this->generateFile($this->file, $data);
 
-        //Genration of the view using the template
+        $webRoot = Configuration::get("webRoot", "/");
+
+        // Genration of the view using the template
         $view = $this->generateFile('view/template.php', 
-            array('title' => $this->title, 'content' => $content));
+            array( 'title'   => $this->title, 
+                   'content' => $content,
+                   'webRoot' => $webRoot
+                 ));
 
         //print the view to the browser
         echo $view;

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <base href="<?php echo $webRoot; ?>">
     <link rel="stylesheet" href="content/style.css">
     <title><?php echo $title; ?></title>
 </head>
