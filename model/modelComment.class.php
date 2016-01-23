@@ -36,4 +36,20 @@ class modelComment extends Model
     	$date = date(DATE_W3C); // return the current date with W3C format
     	$this->executeQuery($strSQL, array($date, $author, $content, $idPost));
     }
+
+    /**
+     * Count number of comments and return it
+     *
+     * @return int Number of comments
+     */
+     public function getNbComments() 
+     {
+        $strSQL = 'select count(*) as nbComments from T_COMMENT';
+        $result = $this->executeQuery($strSQL);
+        
+        $result->setFetchMode(PDO::FETCH_OBJ);
+
+        return $result->nbComments;
+     }
+
 }

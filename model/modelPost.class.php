@@ -46,4 +46,19 @@ class ModelPost extends Model
         }
     }
 
+    /**
+     * Count number of posts and return it
+     *
+     * @return int Number of posts
+     */
+     public function getNbPosts() 
+     {
+        $strSQL = 'select count(*) as nbPosts from T_POST';
+        $result = $this->executeQuery($strSQL);
+        
+        $result->setFetchMode(PDO::FETCH_OBJ);
+
+        return $result->nbPosts;
+     }
+
 }
