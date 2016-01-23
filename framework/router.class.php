@@ -1,7 +1,7 @@
 <?php 
 
 require_once 'request.class.php';
-require_once 'view/view.class.php';
+require_once 'view.class.php';
 
 /**
  * This class is used to manage what controller do we have to call
@@ -46,7 +46,7 @@ class router
 
         }
 
-        $controllerClass = "Controller"  . $controllerName
+        $controllerClass = "Controller"  . $controllerName;
         $controllerFile  = "controller/" . lcfirst($controllerClass) . ".class.php";
 
         if (file_exists($controllerFile)) {

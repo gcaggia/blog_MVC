@@ -1,7 +1,7 @@
 <?php
 
 require_once 'request.class.php';
-require_once 'view/view.class.php';
+require_once 'view.class.php';
 
 /**
 * This class is used to provide commun services for all descendants controllers 

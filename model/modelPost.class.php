@@ -1,6 +1,6 @@
 <?php
 
-require_once 'model/model.class.php';
+require_once 'framework/model.class.php';
 
 class ModelPost extends Model 
 {
