@@ -8,7 +8,7 @@ class Request
 	/**
 	 * Parammeters of the request
 	 */
-	private $requestParams
+	private $requestParams;
 
 	function __construct($params)
 	{

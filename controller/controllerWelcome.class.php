@@ -1,7 +1,7 @@
 <?php
 
+require_once 'framework/controller.class.php';
 require_once 'model/modelPost.class.php';
-require_once 'view/view.class.php';
 
 class controllerWelcome extends Controller
 {
@@ -21,7 +21,7 @@ class controllerWelcome extends Controller
     public function index()
     {
         $posts = $this->modelPost->getPosts();
-        $view->ctrlGenerateView(array('posts' => $posts));
+        $this->ctrlGenerateView(array('posts' => $posts));
     }   
 
 }
