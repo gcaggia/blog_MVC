@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+require_once 'configuration.class.php';
 
 class View
 {
