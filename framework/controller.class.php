@@ -64,4 +64,15 @@ abstract class Controller
 		$view->generate($dataView);
 	}
 
+	/**
+	 * Make a redirection to a specific action / controller
+	 */
+	protected function ctrlRedirection($controller, $action = null)
+	{
+		$webRoot = Configuration::get("webRoot", "/");
+
+		//Redirection to URL webRoot/controller/Action
+		header("Location : " . $webRoot . $controller . "/" . $action);
+	}
+
 }
