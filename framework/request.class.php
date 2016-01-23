@@ -1,18 +1,26 @@
 <?php 
 
+require_once 'session.class.php';
+
 /**
 * The aim of this class is to model an HTTP request
 */
 class Request
 {
 	/**
-	 * Parammeters of the request
+	 * Parameters of the request
 	 */
 	private $requestParams;
+
+	/**
+	 * session object linked with the request
+	 */
+	private $session;	
 
 	function __construct($params)
 	{
 		$this->requestParams = $params;
+		$this->session = new Session();
 	}
 
 	/**
@@ -36,4 +44,12 @@ class Request
 			throw new Exception("'$name' parameter does not exist in the request...");
 		}
 	}
+
+	/**
+	 * Return session object linked with the request
+	 * @return Session Objet session
+	 */
+	 public function requestGetSession() {
+	 	return $this->session;
+	 }
 }
