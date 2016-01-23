@@ -24,7 +24,7 @@
     </p>
 <?php endforeach; ?>   
           
-<form method="post" action="index.php?action=comment">
+<form method="post" action="post/comment/<?php echo $post->id; ?>">
     <input type="text" id="author" name="author" placeholder="Your Pseudo" required><br>
     <textarea name="content" id="txtcomment" cols="30" rows="10" 
         placeholder="Your Comment" required>

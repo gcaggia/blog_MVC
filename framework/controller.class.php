@@ -17,7 +17,7 @@ abstract class Controller
 	/**
 	 * Incoming Request
 	 */
-	private $ctrlRequest;
+	protected $ctrlRequest;
 
 	/**
 	 * Define the incoming request

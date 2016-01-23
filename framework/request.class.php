@@ -30,7 +30,7 @@ class Request
 	 */
 	public function requestGetParam($name)
 	{
-		if(requestParamExist($name)) {
+		if($this->requestParamExist($name)) {
 			return $this->requestParams[$name];
 		} else {
 			throw new Exception("'$name' parameter does not exist in the request...");

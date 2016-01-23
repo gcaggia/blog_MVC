@@ -70,7 +70,7 @@ class router
         $actionName = "index";
 
         //Check if inside the url there is an action attribute
-        if ($request->requestParamExist('$action')) {
+        if ($request->requestParamExist('action')) {
         
             //The controllerName is in fact the class to instance
             $actionName = $request->requestGetParam('action');

@@ -26,7 +26,6 @@ class controllerPost extends Controller
     {
         //ctrlRequest attribute is in the mother Class controller
         $idpost = $this->ctrlRequest->requestGetParam("id");
-
         $post    = $this->modelPost->getSpecificPost($idpost);
         $comment = $this->modelComment->getComments($idpost);
 
@@ -41,7 +40,7 @@ class controllerPost extends Controller
 
         $author  = $this->ctrlRequest->requestGetParam("author");
         $content = $this->ctrlRequest->requestGetParam("content");
-        $idPost  = $this->ctrlRequest->requestGetParam("idPost");
+        $idPost  = $this->ctrlRequest->requestGetParam("idpost");
 
         //Data saving
         $this->modelComment->addComment($author, $content, $idPost);
