@@ -2,7 +2,7 @@
 
 require_once 'framework/model.class.php';
 
-class modelComment extends Model 
+class ModelComment extends Model 
 {
 
     /**

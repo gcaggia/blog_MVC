@@ -5,7 +5,7 @@ require_once 'model/modelPost.class.php';
 require_once 'model/modelComment.class.php';
 
 
-class controllerPost extends Controller
+class ControllerPost extends Controller
 {
     private $modelPost;
     private $modelComment;

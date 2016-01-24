@@ -7,7 +7,7 @@ require_once 'view.class.php';
  * This class is used to manage what controller do we have to call
  * and what action do we have to execute
  */
-class router 
+class Router 
 {
 
     /**

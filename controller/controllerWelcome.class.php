@@ -3,7 +3,7 @@
 require_once 'framework/controller.class.php';
 require_once 'model/modelPost.class.php';
 
-class controllerWelcome extends Controller
+class ControllerWelcome extends Controller
 {
     private $modelPost;
 

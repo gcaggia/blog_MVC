@@ -57,7 +57,7 @@ abstract class Controller
 	{
 		// Determination of the filename of the view from current controller name
 		$ctrlClassName = get_class($this);
-		$viewName = str_replace("controller", "", $ctrlClassName);
+		$viewName = str_replace("Controller", "", $ctrlClassName);
 
 		// Instanciation and creation of the view
 		$view = new view($this->ctrlAction, $viewName);
