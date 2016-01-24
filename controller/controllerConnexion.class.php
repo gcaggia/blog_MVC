@@ -1,7 +1,7 @@
 <?php 
 
-require_once 'framework/controller';
-require_once 'model/modelUser.php';
+require_once 'framework/controller.class.php';
+require_once 'model/modelUser.class.php';
 
 /**
 * Connexion controller class used to connect an user
@@ -30,19 +30,19 @@ class ControllerConnexion extends Controller
 
             if($this->modelUser->checkUser($login, $password)) {
 
-               $user = $this->modelUser->getUser($login, $password);
+                $user = $this->modelUser->getUser($login, $password);
 
-               $this->ctrlRequest->requestGetSession()
+                $this->ctrlRequest->requestGetSession()
                                  ->sessionSetAttribut("idUser", $user->idUser );
-               $this->ctrlRequest->requestGetSession()
+                $this->ctrlRequest->requestGetSession()
                                  ->sessionSetAttribut("login",  $user->login  );
 
-                $this->ctrlRedirection("admin");
+                $this->ctrlRedirection("Admin");
 
             } else {
 
                 $this->ctrlGenerateView(
-                    array('msgError' => 'IncorretLogin or passwor'),
+                    array('msgError' => 'Incorret Login or password'),
                     "index"
                 );
                 
