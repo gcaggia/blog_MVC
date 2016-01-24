@@ -39,20 +39,4 @@ class controllerPost extends controllerSecure
                                       'login'      => $login));
     }
 
-    /**
-     * This function add a commont to a post
-     */
-    public function comment()
-    {   
-
-        $author  = $this->ctrlRequest->requestGetParam("author");
-        $content = $this->ctrlRequest->requestGetParam("content");
-        $idPost  = $this->ctrlRequest->requestGetParam("idpost");
-
-        //Data saving
-        $this->modelComment->addComment($author, $content, $idPost);
-
-        //Updating of the view
-        $this->ctrlExecuteAction("index");
-    }
 }
