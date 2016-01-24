@@ -58,7 +58,7 @@ class ModelPost extends Model
         
         $result->setFetchMode(PDO::FETCH_OBJ);
 
-        return $result->nbPosts;
+        return $result->fetch()->nbPosts;
      }
 
 }

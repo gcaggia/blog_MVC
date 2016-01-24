@@ -49,7 +49,7 @@ class ModelComment extends Model
         
         $result->setFetchMode(PDO::FETCH_OBJ);
 
-        return $result->nbComments;
+        return $result->fetch()->nbComments;
      }
 
 }

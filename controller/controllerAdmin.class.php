@@ -8,7 +8,7 @@ require_once 'model/modelComment.class.php';
 /**
  * Controller for Admin Page
  */
-class ControllerPost extends controllerSecure
+class ControllerAdmin extends controllerSecure
 {
     private $modelPost;
     private $modelComment;

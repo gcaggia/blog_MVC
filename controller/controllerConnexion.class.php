@@ -37,7 +37,8 @@ class ControllerConnexion extends Controller
                 $this->ctrlRequest->requestGetSession()
                                  ->sessionSetAttribut("login",  $user->login  );
 
-                $this->ctrlRedirection("Admin");
+                $this->ctrlRedirection("admin");
+                exit;
 
             } else {
 

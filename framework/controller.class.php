@@ -57,7 +57,7 @@ abstract class Controller
 	{	
 		$viewAction = $this->ctrlAction;
 
-		if ($viewAction != null) {
+		if ($action != null) {
 			$viewAction = $action;
 		}
 
@@ -77,8 +77,12 @@ abstract class Controller
 	{
 		$webRoot = Configuration::get("webRoot", "/");
 
+		if ($action == null ) {
+			$action = "index";
+		}
+
 		//Redirection to URL webRoot/controller/Action
-		header("Location : " . $webRoot . $controller . "/" . $action);
+		header("Location: " . $webRoot . $controller . "/" . $action);
 	}
 
 }
