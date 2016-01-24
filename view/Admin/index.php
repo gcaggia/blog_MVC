@@ -6,3 +6,5 @@
 
 <p>This blog has <strong><?php echo $nbPosts; ?></strong> post(s) and
 <strong><?php echo $nbComments; ?></strong> comment(s).</p>
+
+<a id="logoutlink" href="connexion/logout">Logout</a>
